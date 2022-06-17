@@ -30,15 +30,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/donate', function () {
-    return Inertia::render('Donate');
+    return Inertia::render('Donation/Donate');
 })->middleware(['auth', 'verified'])->name('donate');
 
 Route::get('/transaction', function () {
-    return Inertia::render('Transaction');
+    return Inertia::render('Donation/Transaction');
 })->middleware(['auth', 'verified'])->name('transaction');
 
 Route::get('/pesapal', function () {
-    return Inertia::render('Merchant');
+    return Inertia::render('Donation/Merchant');
 })->middleware(['auth', 'verified'])->name('pesapal');
 
 

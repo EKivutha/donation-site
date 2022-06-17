@@ -6497,10 +6497,10 @@ function Dashboard(props) {
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Donation/donationForm.jsx":
-/*!******************************************************!*\
-  !*** ./resources/js/Pages/Donation/donationForm.jsx ***!
-  \******************************************************/
+/***/ "./resources/js/Pages/Donation/Donate.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/Pages/Donation/Donate.jsx ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6599,20 +6599,112 @@ function Donate() {
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Donation/paymentConfirmation.jsx":
-/*!*************************************************************!*\
-  !*** ./resources/js/Pages/Donation/paymentConfirmation.jsx ***!
-  \*************************************************************/
-/***/ (() => {
+/***/ "./resources/js/Pages/Donation/Merchant.jsx":
+/*!**************************************************!*\
+  !*** ./resources/js/Pages/Donation/Merchant.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Merchant)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Components_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Button */ "./resources/js/Components/Button.jsx");
+/* harmony import */ var _Layouts_Guest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Layouts/Guest */ "./resources/js/Layouts/Guest.jsx");
+/* harmony import */ var _Components_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Input */ "./resources/js/Components/Input.jsx");
+/* harmony import */ var _Components_Label__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Label */ "./resources/js/Components/Label.jsx");
+/* harmony import */ var _Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/ValidationErrors */ "./resources/js/Components/ValidationErrors.jsx");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
+
+
+
+
+
+
+
+function Merchant() {
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.useForm)({
+    consumer_key: '',
+    consumer_secret: ''
+  }),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      post = _useForm.post,
+      processing = _useForm.processing,
+      errors = _useForm.errors,
+      reset = _useForm.reset;
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    return function () {
+      reset('consumer_key', 'consumer_secret');
+    };
+  }, []);
+
+  var onHandleChange = function onHandleChange(event) {
+    setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+  };
+
+  var submit = function submit(e) {
+    e.preventDefault();
+    post(route('register'));
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_Layouts_Guest__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.Head, {
+      title: "PesaPal merchant credentials"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      errors: errors
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
+      onSubmit: submit,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        className: "mt-4",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          forInput: "consumer_key",
+          value: "Consumer Key"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          type: "consumer_key",
+          name: "consumer_key",
+          value: data.consumer_key,
+          className: "mt-1 block w-full",
+          handleChange: onHandleChange,
+          required: true
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        className: "mt-4",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          forInput: "consumer_secret",
+          value: "Consumer Secret"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          type: "name",
+          name: "consumer_secret",
+          value: data.consumer_secret,
+          className: "mt-1 block w-full",
+          handleChange: onHandleChange,
+          required: true
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: "flex items-center justify-end mt-4",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          className: "ml-4",
+          processing: processing,
+          children: "Update Pesapal Credentials"
+        })
+      })]
+    })]
+  });
+}
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Donation/recentTransactions.jsx":
-/*!************************************************************!*\
-  !*** ./resources/js/Pages/Donation/recentTransactions.jsx ***!
-  \************************************************************/
+/***/ "./resources/js/Pages/Donation/Transaction.jsx":
+/*!*****************************************************!*\
+  !*** ./resources/js/Pages/Donation/Transaction.jsx ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6776,6 +6868,16 @@ function Transactions() {
     })
   });
 }
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Donation/paymentConfirmation.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/Pages/Donation/paymentConfirmation.jsx ***!
+  \*************************************************************/
+/***/ (() => {
+
+
 
 /***/ }),
 
@@ -7023,108 +7125,6 @@ function Welcome(props) {
             children: ["Laravel v", props.laravelVersion, " (PHP v", props.phpVersion, ")"]
           })]
         })]
-      })]
-    })]
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/Pages/merchantForm.jsx":
-/*!*********************************************!*\
-  !*** ./resources/js/Pages/merchantForm.jsx ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Merchant)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Components_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Button */ "./resources/js/Components/Button.jsx");
-/* harmony import */ var _Layouts_Guest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Layouts/Guest */ "./resources/js/Layouts/Guest.jsx");
-/* harmony import */ var _Components_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Input */ "./resources/js/Components/Input.jsx");
-/* harmony import */ var _Components_Label__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Label */ "./resources/js/Components/Label.jsx");
-/* harmony import */ var _Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/ValidationErrors */ "./resources/js/Components/ValidationErrors.jsx");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-
-
-function Merchant() {
-  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.useForm)({
-    consumer_key: '',
-    consumer_secret: ''
-  }),
-      data = _useForm.data,
-      setData = _useForm.setData,
-      post = _useForm.post,
-      processing = _useForm.processing,
-      errors = _useForm.errors,
-      reset = _useForm.reset;
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    return function () {
-      reset('consumer_key', 'consumer_secret');
-    };
-  }, []);
-
-  var onHandleChange = function onHandleChange(event) {
-    setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
-  };
-
-  var submit = function submit(e) {
-    e.preventDefault();
-    post(route('register'));
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_Layouts_Guest__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.Head, {
-      title: "PesaPal merchant credentials"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      errors: errors
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
-      onSubmit: submit,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "mt-4",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          forInput: "consumer_key",
-          value: "Consumer Key"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          type: "consumer_key",
-          name: "consumer_key",
-          value: data.consumer_key,
-          className: "mt-1 block w-full",
-          handleChange: onHandleChange,
-          required: true
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "mt-4",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          forInput: "consumer_secret",
-          value: "Consumer Secret"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          type: "name",
-          name: "consumer_secret",
-          value: data.consumer_secret,
-          className: "mt-1 block w-full",
-          handleChange: onHandleChange,
-          required: true
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-        className: "flex items-center justify-end mt-4",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          className: "ml-4",
-          processing: processing,
-          children: "Update Pesapal Credentials"
-        })
       })]
     })]
   });
@@ -59480,16 +59480,16 @@ var map = {
 	"./Auth/VerifyEmail.jsx": "./resources/js/Pages/Auth/VerifyEmail.jsx",
 	"./Dashboard": "./resources/js/Pages/Dashboard.jsx",
 	"./Dashboard.jsx": "./resources/js/Pages/Dashboard.jsx",
-	"./Donation/donationForm": "./resources/js/Pages/Donation/donationForm.jsx",
-	"./Donation/donationForm.jsx": "./resources/js/Pages/Donation/donationForm.jsx",
+	"./Donation/Donate": "./resources/js/Pages/Donation/Donate.jsx",
+	"./Donation/Donate.jsx": "./resources/js/Pages/Donation/Donate.jsx",
+	"./Donation/Merchant": "./resources/js/Pages/Donation/Merchant.jsx",
+	"./Donation/Merchant.jsx": "./resources/js/Pages/Donation/Merchant.jsx",
+	"./Donation/Transaction": "./resources/js/Pages/Donation/Transaction.jsx",
+	"./Donation/Transaction.jsx": "./resources/js/Pages/Donation/Transaction.jsx",
 	"./Donation/paymentConfirmation": "./resources/js/Pages/Donation/paymentConfirmation.jsx",
 	"./Donation/paymentConfirmation.jsx": "./resources/js/Pages/Donation/paymentConfirmation.jsx",
-	"./Donation/recentTransactions": "./resources/js/Pages/Donation/recentTransactions.jsx",
-	"./Donation/recentTransactions.jsx": "./resources/js/Pages/Donation/recentTransactions.jsx",
 	"./Welcome": "./resources/js/Pages/Welcome.jsx",
-	"./Welcome.jsx": "./resources/js/Pages/Welcome.jsx",
-	"./merchantForm": "./resources/js/Pages/merchantForm.jsx",
-	"./merchantForm.jsx": "./resources/js/Pages/merchantForm.jsx"
+	"./Welcome.jsx": "./resources/js/Pages/Welcome.jsx"
 };
 
 
