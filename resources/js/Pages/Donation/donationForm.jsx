@@ -6,7 +6,7 @@ import Label from '@/Components/Label';
 import ValidationErrors from '@/Components/ValidationErrors';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
 
-export default function Register() {
+export default function Donate() {
     const { data, setData, post, processing, errors, reset } = useForm({
         amount: '',
         phone_number: '',
