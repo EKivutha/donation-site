@@ -4,6 +4,7 @@ namespace App\Http\Controllers\payments\pesapal;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class PesaPalController extends Controller
 {
@@ -13,22 +14,14 @@ class PesaPalController extends Controller
         ? 'https://cybqa.pesapal.com/pesapalv3/api/Auth/RequestToken'
         : 'https://pay.pesapal.com/v3/api/Auth/RequestToken';
 
-        $curl = curl_init($url);
-        curl_setopt_array(
-            $curl,
-            array(
-                CURLOPT_HTTPHEADER => ['Content-Type: application/json; charset=utf8'],
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_HEADER => false,
-                CURLOPT_USERPWD => env('PESAPAL_CONSUMER_KEY') . ':' . env('PESAPAL_CONSUMER_SECRET'),
-            )
-        );
-        $response = json_decode(curl_exec($curl));
-        curl_close($curl);
-        // $response = json_decode($response);
-
-        // return $response;
-        return $response;
+       
+        $response = Http::post($url, [
+            'consumer_key' => 'qkio1BGGYAXTu2JOfm7XSXNruoZsrqEW',
+            'consumer_secret' => 'osGQ364R49cXKeOYSpaOnT++rHs=',
+        ]);
+        $data = json_decode($response, true);
+        return $data->data->token;
+        
     }
 
     public function makeHttp($url, $body)
@@ -48,11 +41,19 @@ class PesaPalController extends Controller
                 )
         );
         $curl_response = curl_exec($curl);
+        // $curl_response = Http::withHeaders([
+        //     'Content-Type:application/json',
+        //     'Authorization:Bearer '. $this->getAccessToken()
+        // ])->post($url, [
+        //     'consumer_key' => 'qkio1BGGYAXTu2JOfm7XSXNruoZsrqEW',
+        //     'consumer_secret' => 'osGQ364R49cXKeOYSpaOnT++rHs=',
+        // ]);
+
         curl_close($curl);
         return $curl_response;
     }
 
-    public function lipaNaPesaPal(Request $request)
+    public function requestLipaNaPesaPal(Request $request)
     {
         $curl_post_data = array(
             
@@ -78,7 +79,7 @@ class PesaPalController extends Controller
 
           );
 
-        $res = $this->makeHttp('URLSetup/RegisterIPN', $curl_post_data);
+        $res = $this->makeHttp('/Transactions/SubmitOrderRequest', $curl_post_data);
 
         return $res;
     }
