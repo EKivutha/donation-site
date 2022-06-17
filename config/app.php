@@ -212,4 +212,11 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    'debug_blacklist' => [
+        '_ENV' => [
+            "PESAPAL_CONSUMER_KEY",
+            "PESAPAL_CONSUMER_SECRET"
+        ]
+    ]
+
 ];
